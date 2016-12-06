@@ -8,7 +8,7 @@ if [ -n "$PS1" ] && [ -n "$SSH_CONNECTION" ] && [ -z "$TMUX" ]; then
 
   sleep 1
 
-  ( (tmux attach-session -t "$SESSION_NAME" 2>/dev/null) ||
+  ( (tmux attach-session -d -t "$SESSION_NAME" 2>/dev/null) ||
     (tmux new-session -s "$SESSION_NAME" "$SESSION_COMMAND") )
 
   if [ "$?" -eq 0 ]; then
